@@ -48,9 +48,9 @@ files of our own we want to serve have to be in a subdirectory.
 
 These are the commands I ran to set up the HTTP frontend:
 
-	nvim /etc/nginx/sites-available/tmp  # See above
+	vi /etc/nginx/sites-available/tmp  # See above
 	mkdir -p /var/www/tmp/data
-	nvim /var/www/tmp/data/index.html  # Write whatever you want
+	vi /var/www/tmp/data/index.html  # Write whatever you want
 	ln -s /etc/nginx/sites-available/tmp /etc/nginx/sites-enabled/tmp
 	# Let us encrypt. Follow the prompts to select these domains
 	# (tmp.* and www.tmp.*). I also selected the option to modify
