@@ -1,8 +1,27 @@
 This is a log of the steps I've taken so far in setting up ```tmp``` on
 my server.
 
-1. Set tmp and www.tmp CNAME records for my domain, smlavine.com.
-2. Make a new HTTP site using nginx. This is where the uploaded files
+1. Create a new user. You can name it whatever you want but ```tmp```
+seems like a good one. This is the user that people will SSH into to use
+the service.
+
+	useradd -m tmp  # If you want, set a shell for easier administration
+	passwd tmp  # For now, at least, give the user a strong password
+
+2. Add the following to the end of your ```/etc/ssh/sshd_config```:
+
+	Match User tmp
+		ForceCommand /home/tmp/tmp-login
+
+This will make it so that those logging in as ```tmp``` can do nothing
+except interact with the tmp service.
+
+3. If you have password authentication disabled, add your public SSH key
+to ```/home/tmp/.ssh/authorized_keys```.
+
+4. Set tmp and www.tmp CNAME records for my domain, smlavine.com.
+
+5. Make a new HTTP site using nginx. This is where the uploaded files
 will be accessible by the world.
 
 This is the nginx server config I wrote:
@@ -38,24 +57,6 @@ These are the commands I ran to set up the HTTP frontend:
 	# the config to automatically redirect HTTP traffic to HTTPS.
 	letsencrypt
 	systemctl restart nginx  # Use your web browser to check it works!
-
-3. Create a new user. You can name it whatever you want but ```tmp```
-seems like a good one. This is the user that people will SSH into to use
-the service.
-
-	useradd -m tmp  # If you want, set a shell for easier administration
-	passwd tmp  # For now, at least, give the user a strong password
-
-4. Add the following to the end of your ```/etc/ssh/sshd_config```:
-
-	Match User tmp
-		ForceCommand /home/tmp/tmp-login
-
-This will make it so that those logging in as ```tmp``` can do nothing
-except interact with the tmp service.
-
-5. If you have password authentication disabled, add your public SSH key
-to ```/home/tmp/.ssh/authorized_keys```.
 
 TODO: continue writing this as I go.
 
