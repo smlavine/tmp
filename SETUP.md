@@ -19,7 +19,7 @@ except interact with the tmp service.
 3. If you have password authentication disabled, add your public SSH key
 to ```/home/tmp/.ssh/authorized_keys```.
 
-4. Set tmp and www.tmp CNAME records for my domain, smlavine.com.
+4. Set tmp and www.tmp CNAME records for my domain, example.com.
 
 5. Make a new HTTP site using nginx. This is where the uploaded files
 will be accessible by the world.
@@ -34,7 +34,7 @@ This is the nginx server config I wrote:
 	
 	        index data/index.html;
 	
-	        server_name tmp.smlavine.com www.tmp.smlavine.com;
+	        server_name tmp.example.com www.tmp.example.com;
 	
 	        location / {
 	                try_files $uri $uri.html $uri/data/index.html $uri/ =404;
