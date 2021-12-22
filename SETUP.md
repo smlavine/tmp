@@ -1,28 +1,67 @@
-This is a log of the steps I've taken so far in setting up ```tmp``` on
-my server.
+# Setting up tmp on a server
 
-1. Create a new user. You can name it whatever you want but ```tmp```
-seems like a good one. This is the user that people will SSH into to use
-the service.
+It is assumed that you have the following already installed on your system:
+
+- A C library
+- shadow (```useradd```, ```passwd```)
+- Standard UNIX utilities (```ln```, ```mkdir```, etc.)
+- Some text editor (in this guide ```vi``` is used)
+- An SSH server (probably ```openssh-server```)
+- systemd
+- nginx
+- letsencrypt / certbot
+
+Additionally it is assumed that you have some domain name under your
+control. In this guide that domain will be referred to as ```example.com```.
+
+These steps were written against a Vultr VPS running Debian GNU/Linux 10.
+
+## Create a new system user
+
+This is the user that people will SSH into when using ```tmp```. It
+doesn't matter what this user is called, but it makes sense to me to
+call it tmp.
 
 	useradd -m tmp  # If you want, set a shell for easier administration
 	passwd tmp  # For now, at least, give the user a strong password
 
-2. Add the following to the end of your ```/etc/ssh/sshd_config```:
+But when people log in as tmp over SSH, we don't want to give them
+access to a shell on our server. We only want them to be able to use our
+```tmp``` service. To accomplish this, add this to your
+```/etc/ssh/sshd_config``` file:
 
 	Match User tmp
 		ForceCommand /home/tmp/tmp-login
 
-This will make it so that those logging in as ```tmp``` can do nothing
-except interact with the tmp service.
+Make sure to ```systemctl reload sshd``` and ```systemctl restart
+sshd``` or it will not take effect.
 
-3. If you have password authentication disabled, add your public SSH key
-to ```/home/tmp/.ssh/authorized_keys```.
+You don't have to enable SSH login to this user yet, but it may be
+helpful for testing purposes. If so, add your public SSH key to
+```/home/tmp/.ssh/authorized_keys```.
 
-4. Set tmp and www.tmp CNAME records for my domain, example.com.
+## Set up a new subdomain
 
-5. Make a new HTTP site using nginx. This is where the uploaded files
-will be accessible by the world.
+If you aren't already using your domain for anything, this step is
+optional. But if you are already using it for another site, for example
+a personal blog, you must create a new subdomain for the tmp service
+because we are making a new nginx site for it.
+
+Well, now that I think about it, this isn't *strictly* necessary, if
+instead you want files to be available in a subdirectory in a site
+already existing on the server. But you'll have to do things a bit
+differently in a step or two in that case.
+
+The specifics of how you set up your subdomain will depend on your
+domain registrar, but it should result in two records that look
+something like this:
+
+	tmp	CNAME	example.com	300
+	www.tmp	CNAME	example.com	300
+
+## Make a new HTTP site with nginx
+
+This is where uploaded files will be accessible by the world.
 
 This is the nginx server config I wrote:
 
@@ -56,8 +95,13 @@ These are the commands I ran to set up this nginx site:
 	# (tmp.* and www.tmp.*). I also selected the option to modify
 	# the config to automatically redirect HTTP traffic to HTTPS.
 	letsencrypt
-	systemctl restart nginx  # Use your web browser to check it works!
+	systemctl restart nginx
 
+At this point you should have a live webpage at your equivilant of
+```tmp.example.com```. Point your web browser to that address to see for
+yourself. Make sure you've created a file at ```data/index.html```.
+
+---
 TODO: continue writing this as I go.
 
 The layout and presentation of this file will probably change with time,
