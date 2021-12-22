@@ -27,18 +27,18 @@ will be accessible by the world.
 This is the nginx server config I wrote:
 
 	server {
-	        listen 80;
-	        listen [::]:80;
+		listen 80;
+		listen [::]:80;
 	
-	        root /var/www/tmp;
+		root /var/www/tmp;
 	
-	        index data/index.html;
+		index data/index.html;
 	
-	        server_name tmp.example.com www.tmp.example.com;
+		server_name tmp.example.com www.tmp.example.com;
 	
-	        location / {
-	                try_files $uri $uri.html $uri/data/index.html $uri/ =404;
-	        }
+		location / {
+			try_files $uri $uri.html $uri/data/index.html $uri/ =404;
+		}
 	}
 
 One thing you may notice is that the index file is set to
