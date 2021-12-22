@@ -103,6 +103,3 @@ yourself. Make sure you've created a file at ```data/index.html```.
 
 ---
 TODO: continue writing this as I go.
-
-The layout and presentation of this file will probably change with time,
-but I'm just getting the ideas down for now.
