@@ -47,7 +47,7 @@ optional. But if you are already using it for another site, for example
 a personal blog, you must create a new subdomain for the tmp service
 because we are making a new nginx site for it.
 
-Well, now that I think about it, this isn't *strictly* necessary, if
+Well, now that I think about it, this isn't _strictly_ necessary, if
 instead you want files to be available in a subdirectory in a site
 already existing on the server. But you'll have to do things a bit
 differently in a step or two in that case.
