@@ -46,7 +46,7 @@ One thing you may notice is that the index file is set to
 uploaded files will be available at the top level of this site, any
 files of our own we want to serve have to be in a subdirectory.
 
-These are the commands I ran to set up the HTTP frontend:
+These are the commands I ran to set up this nginx site:
 
 	vi /etc/nginx/sites-available/tmp  # See above
 	mkdir -p /var/www/tmp/data
