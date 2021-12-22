@@ -102,4 +102,4 @@ At this point you should have a live webpage at your equivilant of
 yourself. Make sure you've created a file at ```data/index.html```.
 
 ---
-TODO: continue writing this as I go.
+TODO: continue writing this as I write the service.
