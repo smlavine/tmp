@@ -44,7 +44,7 @@ helpful for testing purposes. If so, add your public SSH key to
 
 If you aren't already using your domain for anything, this step is
 optional. But if you are already using it for another site, for example
-a personal blog, you must create a new subdomain for the tmp service
+a personal blog, you must create a new subdomain for ```tmp```
 because we are making a new nginx site for it.
 
 Well, now that I think about it, this isn't _strictly_ necessary, if
