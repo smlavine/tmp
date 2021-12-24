@@ -2,19 +2,18 @@
 
 _(This is still in the design stage.)_
 
-# Synopsis
+# SYNOPSIS
+
+	... | ssh tmp@tmp.example.com
+
+# DESCRIPTION
 
 tmp is a simple service for temporary file uploads over SSH. The file to
 be uploaded is provided to ssh as stdin, and upon successful upload a
 link to the file will be put to stdout. On an error, like exceeding a
 size limit, a message will be put to stderr.
 
-# Description
-
-Basic usage:
-
-	$ cat image.jpg | ssh tmp@tmp.example.com
-	https://tmp.example.com/wfesp59.jpg
+# OPTIONS
 
 A custom time limit can be provided:
 
@@ -145,7 +144,7 @@ At this point you should have a live webpage at your equivilant of
 ```tmp.example.com```. Point your web browser to that address to see for
 yourself. Make sure you've created a file at ```data/index.html```.
 
-# Bugs
+# BUGS
 
 A custom name cannot be provided unless a custom time limit is also
 provided. Another way of designing this could have been to use options
