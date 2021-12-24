@@ -1,6 +1,5 @@
 # tmp - Simple temporary file uploads over SSH
 
-_(This is still in the design stage.)_
 
 # SYNOPSIS
 
@@ -159,3 +158,4 @@ consider instead persuing something like
 	$ ... | ssh tmp@tmp.example.com t=1w n=file.txt
 	$ ... | ssh tmp@tmp.example.com n=recording.mp4 foo=baz bar
 
+This is still in the design stage. No code has been written yet.
