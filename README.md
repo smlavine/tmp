@@ -158,4 +158,9 @@ consider instead persuing something like
 	$ ... | ssh tmp@tmp.example.com t=1w n=file.txt
 	$ ... | ssh tmp@tmp.example.com n=recording.mp4 foo=baz bar
 
+Options and arguments are exposed to the program server-side through the
+```SSH_ORIGINAL_COMMAND``` environment variable. Spaces within arguments
+cannot be differentiated from the separation of arguments, so spaces
+cannot be included in any command line input to ```tmp```.
+
 This is still in the design stage. No code has been written yet.
