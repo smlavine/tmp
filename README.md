@@ -14,7 +14,7 @@ size limit, a message will be put to stderr.
 Basic usage:
 
 	$ cat image.jpg | ssh tmp@tmp.example.com
-	https://tmp.example.com/abximcd.jpg
+	https://tmp.example.com/wfesp59.jpg
 
 A custom time limit can be provided:
 
