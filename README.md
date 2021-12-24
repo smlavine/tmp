@@ -46,17 +46,6 @@ numbers that might cause confusion with others in the set are removed.
 For guidance on how to install tmp on a server, see
 [SETUP.md](https://git.sr.ht/~smlavine/tmp/tree/master/item/SETUP.md).
 
-This project is hosted at <https://sr.ht/~smlavine/tmp>.
-
-To browse the source code repository, see
-<https://git.sr.ht/~smlavine/tmp>.
-
-For development discussion and patches related to the tmp project, see
-the mailing list at <https://lists.sr.ht/~smlavine/tmp-devel>.
-
-For announcements related to the tmp project, see the mailing list at
-<https://lists.sr.ht/~smlavine/tmp-announce>.
-
 # BUGS
 
 A custom name cannot be provided unless a custom time limit is also
@@ -95,3 +84,16 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+---
+
+This project is hosted at <https://sr.ht/~smlavine/tmp>.
+
+To browse the source code repository, see
+<https://git.sr.ht/~smlavine/tmp>.
+
+For development discussion and patches related to the tmp project, see
+the mailing list at <https://lists.sr.ht/~smlavine/tmp-devel>.
+
+For announcements related to the tmp project, see the mailing list at
+<https://lists.sr.ht/~smlavine/tmp-announce>.
