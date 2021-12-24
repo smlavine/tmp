@@ -2,10 +2,45 @@
 
 _(This is still in the design stage.)_
 
+# Synopsis
+
+tmp is a simple service for temporary file uploads over SSH. The file to
+be uploaded is provided to ssh as stdin, and upon successful upload a
+link to the file will be put to stdout. On an error, like exceeding a
+size limit, a message will be put to stderr.
+
+# Description
+
 Basic usage:
 
 	$ cat image.jpg | ssh tmp@tmp.example.com
 	https://tmp.example.com/abximcd.jpg
+
+A custom time limit can be provided:
+
+	$ cat report.pdf | ssh tmp@tmp.example.com 14d
+	https://tmp.example.com/b4r8t75.pdf
+	$ cat LICENSE | ssh tmp@tmp.example.com 2m
+	https://tmp.example.com/z5rq6zr.txt
+
+By default, files are deleted 2 days after they are uploaded.
+
+A custom file name can be provided:
+
+	$ cat wow.mp3 | ssh tmp@tmp.example.com 1w wow.mp3
+	https://tmp.example.com/wow.mp3
+	$ curl https://sr.ht/~smlavine/tmp | ssh tmp@tmp.example.com 2d tmp
+	https://tmp.example.com/tmp.html
+
+The name cannot be more than 128 bytes long, and must contain only
+letters, numbers, dots, underscores, and hyphens. **No spaces**. Some
+Unicode characters might work but it is not guaranteed.
+
+A file ending will be appended if one is not provided.
+
+By default, a file is given a randomly generated name. Characters in the
+name are from the string "abcdefghijkmnpqrstuvwxyz23456789". Letters and
+numbers that might cause confusion with others in the set are removed.
 
 # Setting up tmp on a server
 
@@ -109,6 +144,21 @@ These are the commands I ran to set up this nginx site:
 At this point you should have a live webpage at your equivilant of
 ```tmp.example.com```. Point your web browser to that address to see for
 yourself. Make sure you've created a file at ```data/index.html```.
+
+# Bugs
+
+A custom name cannot be provided unless a custom time limit is also
+provided. Another way of designing this could have been to use options
+instead:
+
+	$ ... | ssh tmp@tmp.example.com -- -t 1w -n file.txt
+
+The ```--``` is necessary to prevent ```ssh``` from parsing the ```-t```
+as its own. This syntax is a bit too long for my liking, but I may
+consider instead persuing something like
+
+	$ ... | ssh tmp@tmp.example.com t=1w n=file.txt
+	$ ... | ssh tmp@tmp.example.com n=recording.mp4 foo=baz bar
 
 ---
 TODO: continue writing this as I write the service.
