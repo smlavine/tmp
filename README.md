@@ -144,6 +144,19 @@ At this point you should have a live webpage at your equivilant of
 ```tmp.example.com```. Point your web browser to that address to see for
 yourself. Make sure you've created a file at ```data/index.html```.
 
+# NOTES
+
+This project is hosted at <https://sr.ht/~smlavine/tmp>.
+
+To browse the source code repository, see
+<https://git.sr.ht/~smlavine/tmp>.
+
+For development discussion and patches related to the tmp project, see
+the mailing list at <https://lists.sr.ht/~smlavine/tmp-devel>.
+
+For announcements related to the tmp project, see the mailing list at
+<https://lists.sr.ht/~smlavine/tmp-announce>.
+
 # BUGS
 
 A custom name cannot be provided unless a custom time limit is also
