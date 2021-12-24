@@ -1,0 +1,10 @@
+#!/bin/sh
+
+if [ ! "$SSH_ORIGINAL_COMMAND" ]; then
+	echo 'No arguments provided.' > /dev/stderr
+	exit 1
+fi
+
+for word in $SSH_ORIGINAL_COMMAND; do
+	printf '%s\n' "$word"
+done
