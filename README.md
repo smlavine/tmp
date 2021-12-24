@@ -1,5 +1,6 @@
-# tmp - Simple temporary file uploads over SSH
+# NAME
 
+tmp - Simple temporary file uploads over SSH
 
 # SYNOPSIS
 
