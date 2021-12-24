@@ -22,7 +22,8 @@ This is the user that people will SSH into when using ```tmp```. It
 doesn't matter what this user is called, but it makes sense to me to
 call it tmp.
 
-	useradd -m tmp  # If you want, set a shell for easier administration
+	useradd -m tmp
+	chsh -s /bin/bash tmp  # Optional, for easier administration
 	passwd tmp  # For now, at least, give the user a strong password
 
 But when people log in as tmp over SSH, we don't want to give them
