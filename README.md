@@ -159,5 +159,3 @@ consider instead persuing something like
 	$ ... | ssh tmp@tmp.example.com t=1w n=file.txt
 	$ ... | ssh tmp@tmp.example.com n=recording.mp4 foo=baz bar
 
----
-TODO: continue writing this as I write the service.
