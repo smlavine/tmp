@@ -1,17 +1,17 @@
 # tmp - Simple temporary file uploads over SSH
 
-# SYNOPSIS
+# Synopsis
 
 	... | ssh tmp@tmp.example.com
 
-# DESCRIPTION
+# Description
 
 tmp is a simple service for temporary file uploads over SSH. The file to
 be uploaded is provided to ssh as stdin, and upon successful upload a
 link to the file will be put to stdout. On an error, like exceeding a
 size limit, a message will be put to stderr.
 
-# OPTIONS
+# Options
 
 A custom time limit can be provided:
 
@@ -39,12 +39,12 @@ By default, a file is given a randomly generated name. Characters in the
 name are from the string "abcdefghijkmnpqrstuvwxyz23456789". Letters and
 numbers that might cause confusion with others in the set are removed.
 
-# NOTES
+# Notes
 
 For guidance on how to install tmp on a server, see
 [SETUP.md](https://git.sr.ht/~smlavine/tmp/tree/master/item/SETUP.md).
 
-# BUGS
+# Bugs
 
 A custom name cannot be provided unless a custom time limit is also
 provided. Another way of designing this could have been to use options
@@ -66,7 +66,7 @@ cannot be included in any command line input to ```tmp```.
 
 This is still in the design stage. No code has been written yet.
 
-# COPYRIGHT
+# Copyright
 
 Copyright (C) 2021 Sebastian LaVine <mail@smlavine.com>
 
