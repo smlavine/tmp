@@ -16,13 +16,21 @@ control. In this guide that domain will be referred to as ```example.com```.
 
 These steps were written against a Vultr VPS running Debian GNU/Linux 10.
 
+## Create the group
+
+All users that can interact with ```tmp``` must be members of the tmp group.
+
+	groupadd tmp
+
 ## Create a new system user
 
-This is the user that people will SSH into when using ```tmp```. It
-doesn't matter what this user is called, but it makes sense to me to
-call it tmp.
+This is the user that people will SSH into when using ```tmp```. If you
+want, you can make multiple users with different permissions (file size
+limits, mime type limits) or access (keys, password). For this guide we
+are only going to make one user. It doesn't matter what this user is
+called, but it makes sense to me to call it tmp.
 
-	useradd -m tmp
+	useradd -mg tmp tmp
 	chsh -s /bin/bash tmp  # Optional, for easier administration
 	passwd tmp  # For now, at least, give the user a strong password
 
@@ -33,6 +41,9 @@ access to a shell on our server. We only want them to be able to use our
 
 	Match User tmp
 		ForceCommand /home/tmp/tmp-login
+
+**TODO: Change this to a ```Match Group``` block and mention it in the
+above section instead.**
 
 Make sure to ```systemctl reload sshd``` and ```systemctl restart
 sshd``` or it will not take effect.
@@ -102,3 +113,9 @@ At this point you should have a live webpage at your equivilant of
 ```tmp.example.com```. Point your web browser to that address to see for
 yourself. Make sure you've created a file at ```data/index.html```.
 
+All users in the tmp group must be able to write to
+```/var/www/tmp```, in order to make uploaded files visible to the
+world:
+
+	chgrp tmp /var/www/tmp
+	chmod g+w /var/www/tmp
