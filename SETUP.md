@@ -7,9 +7,12 @@ It is assumed that you have the following already installed on your system:
 - Standard UNIX utilities (```ln```, ```mkdir```, etc.)
 - Some text editor (in this guide ```vi``` is used)
 - An SSH server (probably ```openssh-server```)
-- systemd
-- nginx
-- letsencrypt / certbot
+- systemd\*
+- nginx\*
+- letsencrypt / certbot\*
+
+\* Other equivalent softwares should work; these are what I am familiar
+with and will use in this guide
 
 Additionally it is assumed that you have some domain name under your
 control. In this guide that domain will be referred to as ```example.com```.
