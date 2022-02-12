@@ -30,7 +30,7 @@ A custom file name can be provided:
 	https://tmp.example.com/tmp.html
 
 The name cannot be more than 128 bytes long, and each character in the
-name must match ```[a-zA-Z]_-\.``` Notice, **no spaces**. A file ending
+name must match ```[a-zA-Z]_-\.```. Notice, **no spaces**. A file ending
 will be appended if one is not provided.
 
 By default, a file is given a randomly generated name. Characters in the
