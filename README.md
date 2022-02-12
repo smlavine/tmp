@@ -29,11 +29,9 @@ A custom file name can be provided:
 	$ curl https://sr.ht/~smlavine/tmp | ssh tmp@tmp.example.com 2d tmp
 	https://tmp.example.com/tmp.html
 
-The name cannot be more than 128 bytes long, and must contain only
-letters, numbers, dots, underscores, and hyphens. **No spaces**. Some
-Unicode characters might work but it is not guaranteed.
-
-A file ending will be appended if one is not provided.
+The name cannot be more than 128 bytes long, and each character in the
+name must match ```[a-zA-Z]_-\.``` Notice, **no spaces**. A file ending
+will be appended if one is not provided.
 
 By default, a file is given a randomly generated name. Characters in the
 name are from the string "abcdefghijkmnpqrstuvwxyz23456789". Letters and
