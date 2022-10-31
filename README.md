@@ -34,7 +34,7 @@ A custom file name can be provided:
 	https://tmp.example.com/tmp.html
 
 The name cannot be more than 128 bytes long, and each character in the
-name must match the regex ```/[a-zA-Z]_-\./```. Notice, **no spaces**. A
+name must match the regex `/[a-zA-Z]_-\./`. Notice, **no spaces**. A
 file ending will be appended if one is not provided.
 
 By default, a file is given a randomly generated name. Characters in the
@@ -54,7 +54,7 @@ instead:
 
 	$ ... | ssh tmp@tmp.example.com -- -t 1w -n file.txt
 
-The ```--``` is necessary to prevent ```ssh``` from parsing the ```-t```
+The `--` is necessary to prevent `ssh` from parsing the `-t`
 as its own. This syntax is a bit too long for my liking, but I may
 consider instead persuing something like
 
@@ -62,9 +62,9 @@ consider instead persuing something like
 	$ ... | ssh tmp@tmp.example.com n=recording.mp4 foo=baz bar
 
 Options and arguments are exposed to the program server-side through the
-```SSH_ORIGINAL_COMMAND``` environment variable. Spaces within arguments
+`SSH_ORIGINAL_COMMAND` environment variable. Spaces within arguments
 cannot be differentiated from the separation of arguments, so spaces
-cannot be included in any command line input to ```tmp```.
+cannot be included in any command line input to `tmp`.
 
 # Copyright
 
