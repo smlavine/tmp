@@ -1,4 +1,8 @@
-# tmp - Simple temporary file uploads over SSH
+# [tmp](https://sr.ht/~smlavine/tmp)
+
+Simple temporary file uploads over SSH.
+
+This is still in the design stage. No code has been written yet.
 
 # Synopsis
 
@@ -61,8 +65,6 @@ Options and arguments are exposed to the program server-side through the
 ```SSH_ORIGINAL_COMMAND``` environment variable. Spaces within arguments
 cannot be differentiated from the separation of arguments, so spaces
 cannot be included in any command line input to ```tmp```.
-
-This is still in the design stage. No code has been written yet.
 
 # Copyright
 
