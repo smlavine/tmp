@@ -1,5 +1,8 @@
 # [tmp](https://sr.ht/~smlavine/tmp)
 
+**Note:** *This is an old, incomplete design that I don't work on
+anymore. It is unfinished and will likely always be.*
+
 Simple temporary file uploads over SSH.
 
 This is still in the design stage. No code has been written yet.
